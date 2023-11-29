@@ -20,7 +20,7 @@ Route::prefix('/api')->group(function () {
     Route::prefix('/comment')->controller(CommentController::class)->group(function () {
         Route::get('/all', 'all');
 
-        Route::middleware(AuthMiddleware::class)->group(function () {
+        Route::group(function () {
             Route::get('/', 'index');
             Route::post('/', 'create');
             Route::options('/');
